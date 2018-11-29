@@ -21,3 +21,8 @@ INSERT INTO todos
   (task, `order`, completed)
 VALUES
   ('shopping', 3, FALSE);
+
+INSERT INTO todos
+  (task, `order`, completed)
+VALUES
+  ('christmas cards', 3, FALSE);
