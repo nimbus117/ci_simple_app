@@ -7,15 +7,18 @@
 </head>
 <body>
   <div class="container">
+    <?php echo form_open('todos/update_completed'); ?>
     <h1>Todos</h1>
     <div class="list-group">
       <?php foreach($todos as $todo) { ?>
         <div class="list-group-item clearfix">
-          <?php echo form_checkbox('completed', $todo->id, $todo->completed); ?>
+          <?php echo form_checkbox('completed[]', $todo->id, $todo->completed); ?>
           <?php echo $todo->task; ?>
         </div>
       <?php } ?>
     </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <?php echo form_close(); ?>
   </div>
 </body>
 </html>

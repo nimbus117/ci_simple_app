@@ -13,4 +13,9 @@ class Todos extends CI_Controller {
     $data['todos'] = $all_todos;
     $this->load->view('todos/index', $data);
   }
+  public function update_completed() {
+    foreach ($this->input->post('completed') as $todo_id) {
+      echo 'The todo with id = ' .$todo_id.' is marked as completed.<br>';
+    }
+  }
 }
