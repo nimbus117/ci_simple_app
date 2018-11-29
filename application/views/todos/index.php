@@ -11,6 +11,7 @@
     <div class="list-group">
       <?php foreach($todos as $todo) { ?>
         <div class="list-group-item clearfix">
+          <?php echo form_checkbox('completed', $todo->id, $todo->completed); ?>
           <?php echo $todo->task; ?>
         </div>
       <?php } ?>

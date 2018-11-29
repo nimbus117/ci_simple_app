@@ -20,7 +20,7 @@ VALUES
 INSERT INTO todos
   (task, `order`, completed)
 VALUES
-  ('shopping', 3, FALSE);
+  ('shopping', 3, TRUE);
 
 INSERT INTO todos
   (task, `order`, completed)
