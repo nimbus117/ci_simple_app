@@ -26,4 +26,13 @@ class Todo_model extends CI_Model {
   function update_entries($update_info, $update_criteria = array()) {
     $this->db->update('todos', $update_info, $update_criteria);
   }
+
+  function insert_entry($task, $order) {
+    $data = array(
+      'task' => $task,
+      'order' => $order,
+      'completed' => 0
+    );
+    $this->db->insert('todos', $data);
+  }
 }

@@ -31,5 +31,12 @@ class Todos extends CI_Controller {
   public function create() {
     echo $this->input->post('task');
     echo $this->input->post('order');
+
+    $task = $this->input->post('task');
+    $order = $this->input->post('order');
+    $this->Todo_model->insert_entry($task, $order);
+
+    $this->load->helper('url');
+    redirect('/');
   }
 }
