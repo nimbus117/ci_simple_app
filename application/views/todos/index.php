@@ -14,13 +14,14 @@
     <div class="list-group">
       <?php foreach($todos as $todo) { ?>
       <div class="list-group-item clearfix pri<?php echo $todo->order ?>">
-          <?php echo form_checkbox('completed[]', $todo->id, $todo->completed); ?>
+          <?php echo form_checkbox('completed[]', $todo->id, $todo->completed, array('onclick' => "document.forms[0].submit()")); ?>
           <?php echo $todo->task; ?>
+          <button type="button" class="close" aria-label="Close">
+            <a href="<?php echo base_url()."todos/delete/".$todo->id;?>" style="color:inherit;text-decoration: none;">&times;</a>
+          </button>
         </div>
       <?php } ?>
     </div>
-    </br>
-    <button type="submit" class="btn btn-primary">Update</button>
     <?php echo form_close(); ?>
     <?php echo form_open('todos/create'); ?>
     </br>

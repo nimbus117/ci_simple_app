@@ -38,4 +38,10 @@ class Todos extends CI_Controller {
 
     redirect('/');
   }
+
+  public function delete() {
+    $id = $this->uri->segment(3);
+    $this->Todo_model->delete_entry($id);
+    redirect('/');
+  }
 }

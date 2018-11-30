@@ -35,4 +35,8 @@ class Todo_model extends CI_Model {
     );
     $this->db->insert('todos', $data);
   }
+
+  function delete_entry($id) {
+    $this->db->delete('todos', array('id' => $id));
+  }
 }
