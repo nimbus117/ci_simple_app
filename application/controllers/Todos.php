@@ -27,4 +27,9 @@ class Todos extends CI_Controller {
     $this->load->helper('url');
     redirect('/');
   }
+
+  public function create() {
+    echo $this->input->post('task');
+    echo $this->input->post('order');
+  }
 }
