@@ -30,7 +30,7 @@
         'name' => 'task',
         'id' => 'task',
         'class' => 'form-control',
-        'placeholder' => 'new task'
+        'placeholder' => 'New task'
       ))?>
     </div>
     <div class="form-group">
@@ -44,6 +44,7 @@
       ?>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
+    <?php echo validation_errors('<span style="color:red;">', '</span>'); ?>
     <?php echo form_close(); ?>
   </div>
 </body>

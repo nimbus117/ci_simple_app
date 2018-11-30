@@ -5,13 +5,14 @@ class Todos extends CI_Controller {
   public function __construct() {
     parent::__construct();
     $this->load->model('Todo_model');
-    $this->load->helper('url');
+    $this->load->helper('url', 'form');
   }
 
   public function index() {
     $all_todos = $this->Todo_model->get_all_entries();
     $data = array();
     $data['todos'] = $all_todos;
+
     $this->load->view('todos/index', $data);
   }
 
@@ -29,14 +30,19 @@ class Todos extends CI_Controller {
   }
 
   public function create() {
-    echo $this->input->post('task');
-    echo $this->input->post('order');
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('task', 'New task', 'required');
+    $this->form_validation->set_rules('order', 'Priority', 'required');
 
-    $task = $this->input->post('task');
-    $order = $this->input->post('order');
-    $this->Todo_model->insert_entry($task, $order);
-
-    redirect('/');
+    if ($this->form_validation->run() == FALSE) {
+      $this->index();
+    }
+    else {
+      $task = $this->input->post('task');
+      $order = $this->input->post('order');
+      $this->Todo_model->insert_entry($task, $order);
+      redirect('/');
+    }
   }
 
   public function delete() {
