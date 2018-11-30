@@ -5,6 +5,7 @@ class Todos extends CI_Controller {
   public function __construct() {
     parent::__construct();
     $this->load->model('Todo_model');
+    $this->load->helper('url');
   }
 
   public function index() {
@@ -24,7 +25,6 @@ class Todos extends CI_Controller {
       $this->Todo_model->update_entries($update_completed, $update_criteria);
     }
 
-    $this->load->helper('url');
     redirect('/');
   }
 
@@ -36,7 +36,6 @@ class Todos extends CI_Controller {
     $order = $this->input->post('order');
     $this->Todo_model->insert_entry($task, $order);
 
-    $this->load->helper('url');
     redirect('/');
   }
 }

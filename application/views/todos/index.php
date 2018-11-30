@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simple Todo App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/priority.css">
 </head>
 <body>
   <div class="container">
@@ -12,7 +13,7 @@
     <h1>Todos</h1>
     <div class="list-group">
       <?php foreach($todos as $todo) { ?>
-        <div class="list-group-item clearfix">
+      <div class="list-group-item clearfix pri<?php echo $todo->order ?>">
           <?php echo form_checkbox('completed[]', $todo->id, $todo->completed); ?>
           <?php echo $todo->task; ?>
         </div>
