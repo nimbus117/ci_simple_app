@@ -6,7 +6,7 @@ class Todo_model extends CI_Model {
   }
 
   function get_all_entries() {
-    $query = $this->db->order_by('order', 'ASC')->get('todos');
+    $query = $this->db->order_by('order ASC, task ASC')->get('todos');
     $results = array();
     foreach ($query->result() as $result) {
       $results[] = $result;
