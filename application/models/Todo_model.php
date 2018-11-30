@@ -22,4 +22,8 @@ class Todo_model extends CI_Model {
     }
     return $results;
   }
+
+  function update_entries($update_info, $update_criteria = array()) {
+    $this->db->update('todos', $update_info, $update_criteria);
+  }
 }
